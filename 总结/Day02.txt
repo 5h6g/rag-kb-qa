@@ -1,0 +1,21 @@
+W0 D2 工作总结｜本地大模型环境部署与推理验证
+
+一、完成情况
+
+完成硬件自查（内存 16G，显卡:5060）。
+
+安装 Ollama（版本 0.40.13），服务已注册为后台自启， ollama --version  /  ollama ps  验证通过。
+
+配置  OLLAMA_MODELS  环境变量，将模型存储路径迁移至非系统盘，避免 C 盘空间占用。
+
+拉取并运行  qwen3:4b  模型（体积约 3GB），完成中文问答与代码生成测试，响应正常。
+
+验证推理后端： ollama ps  显示 PROCESSOR 为GPU。
+
+编写  src/ollama_test.py ，分别通过 Ollama 原生接口（ /api/generate ）与 OpenAI 兼容接口（ /v1/chat/completions ）完成调用，两条链路均返回正确结果。
+
+代码与文档已提交至 GitHub 仓库  rag-kb-qa 。
+
+二、遇到的问题与解决
+
+模型下载速度慢 → 断点续传重试，最终完成下载。

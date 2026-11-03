@@ -27,6 +27,12 @@ def build_knowledge_base():
         separators=["\n\n", "\n", "。", "，", ""]
     )
     chunks = splitter.split_text(raw_text)
+    total = sum((len(x)for x in chunks[0:3]))
+    print(total)
+    print(len(chunks))
+    print(chunks[0])
+    print(len(chunks[0]))
+    print(chunks[1])
     print(f"    → 切分出 {len(chunks)} 个 chunk")
     
     print("[2/4] 生成向量并构建知识库...")
@@ -82,9 +88,10 @@ if __name__ == "__main__":
         vectorstore = build_knowledge_base()
     
     questions = [
-        "RAG 的三个核心步骤是什么？",
+        "Java程序设计课考核占比是多少？",
         "RAG 相比直接让大模型回答有什么优势？",
         "RAG 适合用在哪些场景？",
+        "我室友的生日是多少？",
     ]
     
     for q in questions:
