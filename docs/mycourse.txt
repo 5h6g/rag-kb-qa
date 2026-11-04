@@ -1,3 +1,318 @@
 Java程序设计专业课的考核占比为76%
 实验组的分组编号为6
 PH-2026-730、37.5%
+文段1：HTML基础标签与文档结构解析
+ 
+HTML是网页开发的骨架语言，每一个网页文件都拥有固定的基础文档结构，完整的HTML文档必须包含 <html> 根标签、 <head> 头部区域、 <body> 主体区域这三大核心组成部分，很多同学会混淆，把 <style> 样式标签算作基础结构，实际上 <style> 只是内部CSS样式声明，不属于HTML文档基础框架。HTML文件的后缀为 .html 或者 .htm ，要和JavaScript的 .js 后缀做好区分。
+ 
+在日常网页编写里，有大量高频基础标签需要熟练掌握。 <br> 是单标签，作用是强制文本换行，它没有结束标签，仅用来分割文本段落，不能实现文字对齐效果。 <img> 图片标签同样是单标签，src属性用来填写图片路径或者网络URL，alt属性设置图片加载失败时展示的替代提示文字，这两个属性是考试和实际开发的重点。
+ 
+ <div> 和 <span> 是极易混淆的一组标签， <div> 属于块级元素，会独占一整行空间，常用来划分网页大的模块区域； <span> 是行内元素，不会独占一行，适合对一小段文字、局部内容设置样式，就像美味食光网站里，导航栏、hero大板块使用div划分容器，部分高亮文字就会使用span包裹。
+ 
+HTML还存在特殊字符实体， &nbsp; 不间断空格，用来在页面中插入空格，普通的多个空格在浏览器会被合并为一个，想要保留多个空格效果就需要使用该实体。超链接 <a> 标签实现页面跳转，分为内部链接（网站内部页面跳转，比如index.html跳转到about.html）和外部链接（跳转到别的网站），target属性控制打开方式， _self 在当前窗口打开， _blank 开启全新窗口打开，美味食光三个页面之间的互相跳转就是依靠a标签完成。
+ 
+文段2：CSS三种样式引入方式对比学习
+ 
+CSS全称是Cascading Style Sheets，也就是层叠样式表，三者分工明确：HTML搭建网页结构，CSS负责页面外观视觉渲染，JavaScript实现交互行为逻辑。CSS最小语法单元由选择器、属性、属性值三部分构成，书写格式 选择器 { 属性: 属性值; } ，属性和属性值之间冒号隔开，多条样式声明末尾加分号。
+ 
+CSS一共有三种引入方式：内联样式、内部样式、外部链接样式。
+ 
+1. 内联样式：直接写在HTML标签的style属性当中，例如 <p style="color:red;"> ，它的优先级是三者中最高的，但是缺点是样式和HTML代码混杂，不方便维护，适合临时测试小部分样式。
+2. 内部样式：将全部CSS写在 <style> 标签内，放置在HTML的 <head> 标签里面，样式仅对当前这一个HTML页面生效，美味食光的三份网页全部使用了内部样式，把所有CSS代码写在页面head中，适合单页面项目。
+3. 外部（链接）样式：使用 <link rel="stylesheet" href="xxx.css"> 标签引入独立 .css 文件，多个HTML页面可以共用这一份样式文件，是企业开发最推荐的写法，能够实现结构与样式完全分离，修改样式只需要改动css文件，全部引用页面同步更新。
+ 
+优先级层面：内联样式 > 内部样式、外部样式（后写的会覆盖先写的）。很多考试判断题会挖坑，把link引入外部css说成内部样式，这点一定要规避。对于美味食光项目，如果改成外部样式，就可以把navbar、footer这些三个页面完全重复的样式提取到公共css，index、detail、about页面统一link引入，减少重复代码。
+ 
+文段3：CSS字体系列属性深度梳理
+ 
+CSS字体相关属性是期末考试高频考点，一共有 font-size 、 font‑weight 、 font‑style 、 font‑family 这四个核心属性，千万不要编造不存在的 font‑color ，文字颜色属性是独立的 color ，这是经典易错点。
+ 
+ font‑size 用来设置字体大小，单位可以用px、em、rem、百分比。px是绝对单位，像素大小固定，不受父元素影响；em是相对单位，参照父元素的字体大小；rem参照html根标签字体大小；%百分比同样参照父元素。美味食光网站大量使用rem、px混合，标题设置大字号 font‑size:2.8rem ，普通正文设置1rem。
+ 
+ font‑weight 控制字体粗细，取值有 normal 正常、 bold 加粗，也可以使用100‑900数字，400等价normal，700等价bold，网站logo、大标题都设置font‑weight:700实现加粗效果。
+ 
+ font‑style 控制字体样式斜体， italic 代表斜体， normal 正常字体，注意斜体效果不能使用font‑weight实现，粗细和斜体是两套独立属性。
+ 
+ font‑family 设置字体族，指定页面使用什么字体，例如 "微软雅黑",serif ，多个字体逗号隔开，浏览器从左向右依次寻找本机存在的字体，美味食光全部页面设置 font‑family:'Inter',sans‑serif 优先使用Inter字体，系统没有就使用无衬线默认字体。
+ 
+文本装饰属性 text‑decoration 也常和字体一起考察，取值 underline 下划线、 overline 上划线、 line‑through 删除线、 none 去除下划线。网页默认a标签自带下划线，项目导航栏a标签使用 text‑decoration:none 清除默认下划线，再通过border‑bottom模拟底部高亮线条。同时区分容易混淆属性： text‑align 文本对齐， text‑transform 大小写转换， text‑indent 首行缩进，和text‑decoration各司其职，不能混用。
+ 
+文段4：CSS盒模型核心知识详解
+ 
+CSS盒模型是网页布局的基石，网页当中每一个元素都可以看作一个盒子，从内向外四层依次：content内容区、padding内边距、border边框、margin外边距。
+ 
+content盒子内容区域，存放文字图片，width和height设置的就是content的宽高；
+padding（内边距）：内容和边框之间空白距离，只能设置正数，不允许负值，写负值无效。
+border（边框）：盒子的边线，可以设置宽度、线型solid实线、dashed虚线、颜色；
+margin（外边距）：盒子和外部其他元素之间的距离，margin支持负值！这是margin和padding最大区别，填空题、判断题高频考点。
+ 
+margin、padding支持简写，四种简写规则：
+1个值：四边全部相同  margin:10px; 上下左右都是10px；
+2个值：第一个上下，第二个左右  margin:15px 20px; 上下15px，左右20px；
+3个值：上、左右、下；
+4个值：顺时针顺序 上、右、下、左。
+ 
+display属性控制盒子显示模式：
+ display:block 块级元素，独占一行，div、h系列标签默认块级；
+ display:inline 行内元素，不会独占一行，span默认行内；
+ display:none 元素彻底隐藏，不占据页面任何空间，和visibility:hidden不一样，后者只是看不见，仍然保留占位。
+ 
+美味食光项目里的卡片 .team‑member 、 .card 完整体现盒模型：content存放图片文字，padding设置卡片内部留白，border设置浅颜色边框，margin设置卡片和其他卡片之间间距，border‑radius修改盒子圆角，box‑shadow增加盒子阴影，组合出圆润的卡片视觉效果。理解盒模型，就可以看懂绝大多数网页布局留白的来源，考试的简答填空也经常考察四层结构，padding、margin负值区别。
+ 
+文段5：CSS3新特性transform、transition变形与过渡
+ 
+CSS3新增大量实用特性，transform变形、transition过渡动画、阴影、渐变是考试重点，也是现代网页美化的必备能力，美味食光网站大量运用这些CSS3特性实现交互动效。
+ 
+transform变形包含四个常用方法，极易混淆，一定要分清：
+ 
+1.  rotate(角度) 旋转元素，单位deg，只是旋转，不等于翻转效果；
+2.  scale(倍数) 缩放元素，放大缩小，不是移动；
+3.  translate(x,y) 位移移动元素！想要盒子平移必须用translate，很多同学错写scale实现移动；
+4.  skew() 倾斜扭曲元素。
+ 
+transition过渡属性，实现CSS属性平滑动画过渡，不是瞬间变化。四个子属性：
+ transition‑property 设置要过渡的css属性；
+ transition‑duration 过渡持续时间，单位s秒、ms毫秒，这个是简答题常考，比如0.3s；
+ transition‑timing‑function 动画速率曲线；
+ transition‑delay 动画延迟多久再执行。
+ 
+美味食光导航链接、卡片hover悬浮效果全部依靠transition，鼠标移上去，颜色、位移、阴影不会瞬间跳转，而是平滑渐变， .team‑member:hover {transform:translateY(-10px)} ，鼠标悬浮卡片向上偏移，配合transition设置0.35s完成平滑移动。
+ 
+阴影分为盒子阴影 box‑shadow 和文字阴影 text‑shadow 。
+box‑shadow：盒子阴影，参数：水平偏移、垂直偏移、模糊半径、扩展半径、颜色；
+text‑shadow文字阴影：水平偏移、垂直偏移、模糊半径、颜色；水平正值阴影向右，垂直正值阴影向下，可以逗号分隔写多组多重阴影。
+ 
+渐变分为 linear‑gradient 线性渐变，颜色沿着直线渐变； radial‑gradient 径向渐变，从中心点向外扩散渐变。美味食光的about页面的about‑hero板块背景，就是使用linear‑gradient线性渐变实现柔和的橙黄过渡背景。
+
+文段6：HTML5表单高频考点梳理
+ 
+HTML5表单模块是期末高频考点，选择题填空题大量出题，表单用来收集用户输入的数据，核心标签form，搭配各种各样的input输入框，还有label、textarea等配套标签。
+ 
+input标签依靠type属性区分不同输入控件，重要type值：
+ text 普通单行文本输入框；
+ password 密码框，输入字符显示圆点隐藏；
+ radio 单选按钮，圆形，同一组单选，name属性必须设置成相同值，才可以实现互斥选择，只能选一个，这个考点反复出现；
+ checkbox 复选框，方形，允许多选；
+ submit 提交按钮，提交整个表单；
+ reset 重置按钮，清空表单全部填写内容；
+ button 普通按钮，本身无功能，需要配合JavaScript；
+ date 日期选择，弹出日历；
+ number 数字输入框，带上下箭头，可设置min最大值max最小值；
+ color 调色板；
+ file 文件上传控件；
+ email 邮箱输入，浏览器自带邮箱格式简单校验；
+ range 滑块拖动条。
+ 
+⚠️两个经典错误：不存在 type="select" 下拉框，下拉框要用单独 <select> 标签；普通按钮type是button，不存在type="bottom"，判断题经常拿这两个错误选项挖坑。
+ 
+ <label> 标签：for属性填写input的id值，点击label文字，就会自动聚焦对应的输入框，提升表单可用性。
+ <textarea cols="30" rows="10"> 多行文本输入框，cols控制宽度列数，rows控制行数，适合大段文字输入。
+ 
+虽然美味食光三份示例网页没有写完整表单，但是表单属于课程核心，考试占比很高，要分清各个控件外观、功能，记住radio依靠同名name互斥，label for和id绑定关系，避开type常见错误。
+ 
+文段7：Flex弹性布局完整解析（简答题重点）
+ 
+Flexbox弹性布局是期末简答题重点，是现代网页一维布局方案，适合行或者列方向排列元素。开启弹性布局：给父容器设置 display:flex; ，父元素叫做flex容器，直接子元素叫做flex项目，主轴main‑axis是子元素排列方向，交叉轴cross‑axis垂直于主轴，子元素沿着主轴分配空间，适配容器大小变化。
+ 
+容器属性（写在父盒子上，考试简答需要默写）
+ 
+1. flex‑direction：设置主轴方向。默认值row水平从左向右，不是column！column垂直从上向下；row‑reverse水平反向；column‑reverse垂直反向。没有horizontal、vertical这两个取值。
+
+2. justify‑content：主轴方向对齐方式。取值flex‑start、center居中、flex‑end、space‑between两端对齐，间隔分布；space‑around每个元素两边留有空隙。
+
+3. align‑items：交叉轴对齐。flex‑start、center、flex‑end、stretch拉伸占满、baseline基线对齐。
+
+4. flex‑wrap：子元素是否换行。nowrap默认不换行；wrap空间不够自动换行；wrap‑reverse反向换行。
+
+5. align‑content：多行的时候交叉轴对齐，只有flex‑wrap:wrap生效，单行无效。
+ 
+项目属性（写在子元素上）
+ 
+1. order：控制项目排列顺序，整数，默认0，数字越小，越排在前面；
+
+2. flex‑grow放大比例，默认0，容器有剩余空间，按照比例瓜分多余空间；
+
+3. flex‑shrink缩小比例，默认1，空间不足的时候，元素压缩；
+
+4. flex‑basis：项目初始尺寸，默认auto；
+
+5. align‑self：单独修改某一个项目交叉轴对齐，覆盖父容器align‑items设置。
+ 
+回到美味食光网页，大量布局使用flex：导航栏 .navbar 设置display:flex，实现logo居左，导航链接居右； .nav‑links flex横向排列导航链接； .team‑grid 、 .card‑grid 卡片网格， display:flex; flex‑wrap:wrap 实现卡片自动换行，屏幕变小自动调整布局，这就是flex强大的响应式能力。简答题经常提问：flex‑direction默认值，justify‑content作用，区分容器和项目属性，需要完整记忆属性名称和取值含义。
+ 
+文段8：期末编程题考点与CSS综合样式编写
+ 
+期末编程题占10分，要求手写HTML和CSS代码，综合运用各类样式，复习指南明确列出需要掌握的各类能力，结合美味食光案例可以更好理解各个考点。
+ 
+1. 字体系列样式：熟练写font‑size、font‑weight、color、line‑height行高。行高line‑height可以实现文字垂直居中，网页正文line‑height:1.6提升阅读舒适度。
+
+2. text‑shadow文字阴影：记住偏移规则，x水平，正数向右；y垂直，正数向下；第三个参数模糊半径，最后颜色；支持多组阴影逗号隔开。示例： text‑shadow:2px 2px 2px rgba(0,0,0,0.5); 。
+
+3. 文本装饰text‑decoration：underline下划线、overline上划线、line‑through删除线，double实现双下划线。a标签伪类 :hover 鼠标悬浮样式，a写链接默认样式，a:hover鼠标移上去改变颜色、下划线。
+
+4. border边框语法： border:宽度 线型 颜色; ，solid实线，dashed虚线，比如 border:2px solid #f5a623; 。
+
+5. 背景：background‑color设置背景色，可以写颜色名字、十六进制#e85d3a、rgb、rgba带透明度，美味食光大量使用rgba设置半透明效果，导航栏 background:rgba(255,248,240,0.92) 。
+
+6. 尺寸width、height设置盒子宽高；
+
+7. 伪类hover悬浮：几乎所有卡片、按钮交互全部依靠hover， .card:hover 鼠标悬浮卡片，修改transform位移、box‑shadow阴影，实现上浮效果。
+ 
+编程题大概率给需求，写一小段HTML结构+CSS样式，例如制作卡片、导航按钮。需要注意语法：css大括号，属性冒号，语句末尾分号不要漏写；单位px、rem不要丢；类选择器使用 . ；id选择器 # 。示例，模拟卡片hover：
+ 
+ 
+ 
+同时考试易错坑：不要写font‑color，文字颜色是color；padding不能负值，margin可以负值；区分block、inline、none。
+ 
+文段9：美味食光首页index.html代码业务逻辑与技术分析
+ 
+美味食光 index.html 是项目首页，完整实现美食网站首页功能，包含导航栏、轮播hero横幅、精选推荐卡片网格、热门分类板块、优势介绍和榜单表格、底部页脚，综合运用HTML标签、CSS盒模型、Flex布局、CSS3过渡变形、媒体查询响应式技术。
+ 
+HTML结构划分清晰， <!DOCTYPE html> 声明文档类型，html lang="zh‑CN"声明中文网页；head里面设置meta字符集UTF‑8，视口viewport适配手机；引入外部字体Inter、font‑awesome字体图标库，图标库提供餐具、电话、社交图标； <style> 标签内部存放全部CSS，属于内部样式表。
+ 
+页面结构语义化：header代表导航头部，main包裹全部页面主体内容，section划分各个板块，footer页脚。导航栏 .navbar 设置 position:fixed 固定定位，固定在页面顶部，z‑index提高层级，不会被页面内容遮挡，设置display:flex，左右分布logo和ul导航列表。ul列表清除默认list‑style:none去掉圆点。
+ 
+hero横幅板块，伪元素::before放置半透明背景图片，position:absolute绝对定位叠加，主内容position:relative保证文字层级高于背景图。 .hero‑btn 按钮设置hover悬浮效果，transition实现平滑变化，onclick简单js弹窗。
+ 
+精选推荐 .card‑grid 弹性网格， display:flex; flex‑wrap:wrap; ，卡片 .card 设置 flex:1 1 220px 弹性伸缩，max‑width限制最大宽度，min‑width最小宽度，屏幕大就多排卡片，手机屏幕窄自动换行。卡片hover触发transform:translateY(-12px)上浮，box‑shadow加大阴影，transition:0.35s完成平滑过渡。
+ 
+ .category‑grid 热门分类同样flex布局，每个分类item悬浮emoji表情scale缩放旋转。info‑section板块使用ul无序列表展示优势，搭配font‑awesome图标；styled‑table制作本周榜单表格，border‑collapse合并边框。
+ 
+最后媒体查询 @media(max‑width:768px) 做移动端适配，屏幕宽度小于768px平板手机，修改导航栏高度、hero内边距、字号，适配小屏幕设备。footer页脚flex纵向布局，存放社交图标、版权文字。
+ 
+整个页面充分体现课程全部考点：html基础标签、css盒模型、flex布局、transform、transition过渡、hover伪类、媒体查询响应式，是复习很好的实操样例。
+ 
+文段10：美味食光about.html关于我们页面技术拆解
+ 
+about.html是美味食光的关于我们页面，展示团队介绍、联系信息，和首页、详情页共享一套设计风格，导航栏、页脚样式完全复用，保证网站UI统一，体现大型网站项目中样式复用的开发思想。
+ 
+页面结构：head部分和首页保持一致，引入Inter字体和font‑awesome图标，内部style样式，大量class类名和index首页一模一样，navbar、logo、nav‑links、footer全部复用。导航链接 <a class="active"> ，active类用来标记当前所在页面，设置文字颜色和底部边框高亮，告诉用户现在处于哪个页面。
+ 
+主体部分：about‑hero英雄区，使用linear‑gradient线性渐变背景，圆角border‑radius:24px，box‑shadow盒子阴影，h1标题中span标签局部文字改变颜色。核心团队板块 .team‑grid 弹性容器，flex‑wrap换行， .team‑member 团队成员卡片，每一张卡片包含avatar头像img、h4名字、p角色描述。头像border‑radius:50%实现圆形头像，border设置黄色描边；hover悬浮时，头像同时执行scale放大加上rotate轻微旋转，transform多变换空格隔开书写，transition控制动画速度。
+ 
+contact‑box联系盒子，同样flex弹性布局，分为info联系信息区域，和map‑placeholder模拟地图占位盒子。info里面使用font‑awesome图标搭配地址、电话、邮箱、营业时间文本。社交链接a标签，使用onmouseover、onmouseout简单行内js实现鼠标移入放大图标效果。
+ 
+CSS细节：box‑sizing:border‑box全局盒模型设置，元素宽高包含padding和border，是现代网页开发通用设置； * {margin:0;padding:0;} 全局重置，清除浏览器自带默认内外边距，不同浏览器默认样式不一样，全局重置保证页面表现统一。
+ 
+媒体查询适配移动端，768px断点，导航栏高度降低，hero板块padding内边距缩小，标题字号变小。
+ 
+对比考试考点：线性渐变linear‑gradient，transform的scale、rotate，flex布局容器与项目属性，hover伪类，border‑radius圆角，box‑shadow盒子阴影，span行内元素，div块级容器。同时也可以看到多页面网站开发思路：三个页面导航、页脚重复，如果是外部css方案，就把navbar、footer公共样式抽离，减少三份页面重复代码，这也是三种css引入方式中外部样式的优势。
+文段11：美味食光detail.html食品详情页技术要点分析
+ 
+detail.html食品详情页，展示意大利面商品完整信息：大图、标题评分标签、产品介绍、配料清单、价格、营养成分表格、加入购物车按钮，是电商详情页典型样例，综合运用课程全部CSS知识点，同时可以用来练习期末编程题仿写网页。
+ 
+页面头部依旧复用导航栏，active类标记当前处于详情页面。detail‑hero详情头部大图容器，img图片设置max‑width:100%，object‑fit:cover，保证图片不变形填满盒子，border‑radius大圆角。
+ 
+ .detail‑content 主体内容区域采用flex弹性布局， display:flex; flex‑wrap:wrap; ，分为左侧detail‑text文字区域flex:2，占两份空间；右侧detail‑side侧边栏flex:1占一份空间，min‑width设置最小宽度，手机屏幕空间不足自动换行，左右变成上下排布，响应式效果。
+ 
+左侧详情：h1大标题，多个info‑tag标签展示评分、爆款、低脂标签，display:inline‑block行内块，能够设置宽高margin，实现圆角色块标签。大段p产品描述，line‑height:1.8提升阅读体验；配料清单ul无序列表，flex横向自动换行，每个li搭配font‑awesome对勾图标。
+ 
+右侧侧边栏白色卡片，存放价格、营养表格、加入购物车按钮。价格使用大字号、font‑weight加粗、主题色#e85d3a突出价格。styled‑table营养成分表格，border‑collapse合并边框，th表头背景色区分。加入购物车button按钮，设置onmouseover、onmouseout行内js，悬浮scale放大按钮，box‑shadow阴影增强立体感，cursor:pointer鼠标变成手型。
+ 
+CSS知识点对应考点：flex布局分配flex系数；inline‑block行内块元素；border‑radius圆角；box‑shadow盒子阴影；transition过渡；transform缩放；表格table样式；object‑fit控制图片；媒体查询@media适配移动端。
+ 
+网页三个页面index、detail、about的导航栏、页脚完全一模一样，这在实际项目中会抽离公共css，也就是考试重点的外部链接样式，link引入独立css文件，三个页面共同引用公共样式文件，不用每个页面复制一整套style，后续修改导航颜色，仅仅修改公共css，全部页面同步更新，减少重复代码，维护更简单。而当前三份网页全部使用内部样式，每个页面复制一遍公共样式，适合单页面简单项目，多页面项目不推荐。
+ 
+文段12：易混淆考点集合梳理（期末选择判断填空高频坑）
+ 
+结合复习指南，汇总全部易混淆考点，这些知识点是选择题判断题高频出题位置，很多同学考试丢分大多出自这些对比知识点，结合美味食光网页实例辅助理解记忆。
+ 
+1. 字体相关：font‑size字体大小；font‑family字体类型；font‑weight字体粗细；不存在font‑color，文字颜色是color。美味食光h1标题font‑size设置字号，font‑weight:700加粗，font‑family设置Inter字体，color设置主题橙色。
+
+2. padding与margin：padding内边距，不能取负值；margin外边距，可以取负值，填空题经常直接提问。
+
+3. 渐变区分：linear‑gradient线性渐变（直线方向）；radial‑gradient径向渐变（中心向外扩散），about页面hero背景是linear‑gradient线性渐变。
+
+4. transform变形三个函数：rotate旋转；scale缩放；translate移动。很多题目混淆，问实现盒子平移用哪一个，答案translate。卡片hover向上移动就是transform:translateY(-10px)。
+
+5. CSS三种引入方式区分：内联=标签style属性；内部=head里面标签；外部样式=link标签引用独立.css文件。三份示例网页全部使用内部样式，适合单页面。多网站项目推荐外部样式。优先级：内联>内部/外部。
+
+6. display取值：display:none彻底隐藏，不占页面空间；display:block块级，独占一行（div默认）；display:inline行内，不独占一行（span默认）。注意没有display:no这个非法值。
+
+7. text系列属性区分：text‑decoration文本装饰线（下划线删除线）；text‑align文本对齐；text‑transform大小写转换。
+
+8. div和span对比：div块级元素，独占一行，用来划分大模块（导航、卡片容器）；span行内元素，不独占一行，用来局部文字上色高亮。
+
+9. input表单type：合法普通按钮type="button"；type="bottom"是错误；下拉框不能写input type="select"，要使用标签。radio单选依靠相同name属性实现互斥。
+
+10. 阴影区分：box‑shadow盒子阴影，给div卡片盒子用；text‑shadow文字阴影，给文字设置阴影。
+ 
+除此之外HTML文档基础结构：html、head、body三大件，style不属于基础文档结构； <br> 换行单标签； &nbsp; 空格实体；a标签target属性，_blank新窗口打开；盒模型四层从内向外：content‑padding‑border‑margin；margin简写15px 20px含义上下15px，左右20px。
+ 
+Flex考点：flex‑direction默认值row水平，不是column；justify‑content主轴对齐，align‑items交叉轴对齐；项目order顺序，flex‑grow放大，flex‑shrink缩小。
+ 
+文段13：前端网页开发完整学习思路，结合课程考点与项目样例
+ 
+学习前端开发这门课程，要做到理论考点记忆+代码实操练习双向结合，不能只背复习提纲，也不能只写代码忽略概念，电子科大成都学院25级软件工程期末试卷包含选择40分，判断10分，填空20分，简答填空20分，编程10分，题型分布决定既要背诵概念简答，又要手写代码能力。
+ 
+第一模块HTML基础，掌握文档结构、常用标签、特殊字符、a超链接。重点分清块级div和行内span，img标签src alt，br换行标签。可以拿美味食光网页，复制其中HTML结构，手动默写页面骨架，区分哪些标签是单标签，哪些双标签。
+ 
+第二模块CSS基础，CSS全称Cascading Style Sheets，记住HTML负责结构，CSS负责外观，JS负责行为。三种样式引入方式是简答高频；font字体系列属性；px绝对单位，em、rem、%相对单位；text‑decoration文本装饰。手写简单CSS选择器，练习属性和属性值书写格式。
+ 
+第三模块CSS盒模型，四层结构，padding不能负，margin可以负，简写规则，display属性。拿卡片组件分析，看content内容，padding内部留白，border边框，margin外部间距，理解为什么卡片会和别的盒子产生距离。
+ 
+第四模块CSS3新特性，transform四个方法rotate、scale、translate、skew；transition过渡四个子属性，duration控制时间；box‑shadow盒子阴影、text‑shadow文字阴影；线性、径向渐变。观察美味食光所有hover悬浮动画，全部来自transform+transition组合，自己仿写卡片上浮效果。
+ 
+第五模块HTML5表单，各个input type，radio同名name互斥，label for和id绑定，textarea多行输入。虽然示例网站没有表单，但是考试分值很高，手动写一套登录表单练习。
+ 
+第六模块Flex弹性布局，简答题重点，分清容器属性（父盒子）和项目属性（子盒子），五个容器属性flex‑direction、justify‑content、align‑items、flex‑wrap、align‑content；五个项目order、flex‑grow、flex‑shrink、flex‑basis、align‑self。看网站导航、卡片网格全部flex实现，手动复现导航栏布局。
+ 
+第七模块综合编程，字体、阴影、hover伪类、边框、背景色，能够独立手写一小段html+css，完成简单卡片、按钮样式。期末编程题10分，一定要动手写，不能光看。
+ 
+复习自检清单可以用来自我检测：逐条对照，如果不能口述出来，就回到知识点重新复习。比如问自己：HTML文档三大部分？padding和margin负值区别？flex‑direction默认值？translate、scale、rotate分别干什么？CSS三种引入写法。同时把三份网页作为实操案例，看懂每一块代码对应哪一个课程考点，理论结合实践，应对期末考试。
+ 
+文段14：Flex弹性布局简答题答题模板，结合美味食光实例
+ 
+期末考试简答题很大概率考察Flexbox弹性布局，需要完整描述原理、容器属性、项目属性，结合项目例子，答题条理清晰，拿到满分，结合美味食光网站实例辅助理解记忆，完整答题参考如下：
+ 
+Flex（弹性盒子）是CSS3新增的一维布局模型。实现方式：给父容器设置 display:flex ，父元素叫做flex容器，容器直接子元素称为flex项目。主轴main‑axis是子元素排列的方向，交叉轴cross‑axis垂直于主轴方向；子元素可以沿着主轴方向伸缩分配剩余空间，适配容器大小，适合页面行、列方向布局，美味食光网站导航栏、团队卡片网格大量使用Flex布局。
+ 
+容器属性（设置在父容器上，简答题默写）
+ 
+1.  flex‑direction ：设置主轴方向。默认值 row ，水平从左向右排列；column垂直从上到下；row‑reverse水平反向；column‑reverse垂直反向。示例： .navbar {display:flex;flex‑direction:row} 导航栏子元素logo和导航链接水平排布。
+
+2.  justify‑content ：控制主轴方向子元素对齐方式。取值flex‑start起点对齐、center居中对齐、flex‑end终点对齐；space‑between两端对齐，元素之间均分空隙；space‑around每个元素两侧留有相等空隙。3.  align‑items ：控制交叉轴方向子元素对齐，取值flex‑start、center居中、flex‑end、stretch拉伸占满容器、baseline基线对齐。导航栏使用align‑items:center，让logo文字和导航链接垂直居中。
+
+4.  flex‑wrap ：控制子元素是否换行。nowrap默认不换行；wrap空间不足自动换行；wrap‑reverse反向换行。 .team‑grid {flex‑wrap:wrap;} 团队卡片，屏幕变小，卡片自动换行。
+
+5.  align‑content ：多行情况下，设置交叉轴对齐，只有flex‑wrap:wrap换行时生效，单行无效。
+ 
+项目属性（写在直接子元素上）
+ 
+1.  order ：控制项目排列顺序，整数，默认0，数值越小，排列越靠前；
+
+2.  flex‑grow ：放大比例，默认0，当容器有剩余空间，子项目按比例瓜分剩余空间；
+
+3.  flex‑shrink ：缩小比例，默认1，容器空间不足，项目会按照比例压缩；
+
+4.  flex‑basis ：项目初始大小，默认auto；
+
+5.  align‑self ：单独设置单个项目交叉轴对齐，覆盖父容器align‑items的设置。
+ 
+答题小技巧：简答写完概念之后，可以简单举网页例子，比如“美味食光的团队卡片网格，父容器开启display:flex、flex‑wrap:wrap，实现卡片响应式自动换行，体现flex布局优势”，丰富答案。同时注意易错点：flex‑direction默认值row，没有horizontal、vertical合法取值。
+ 
+文段15：网页多页面开发的优缺点分析，以美味食光三份页面为例
+ 
+美味食光项目一共三份HTML文件：index.html首页、detail.html详情页、about.html关于我们，三个页面导航栏、页脚组件完全一模一样，现在项目全部使用内部样式 <style> 标签写在每个页面head当中，我们可以对比内部样式、外部链接样式两种方案，分析优缺点，对应考试CSS三种引入方式考点，理解多页面网站开发取舍。
+ 
+当前现状：每个页面都复制一份完整style，导航.navbar、footer页脚样式三份页面完全重复复制。
+✅优点：每个页面独立完整，单独打开某一份html文件，不需要依赖外部css文件，直接就可以看到完整样式，适合课程作业、小型演示项目，考试写代码也很方便，全部代码在同一个html，提交文件简单，不需要附带额外.css附件。
+❌缺点：大量重复代码。导航栏需要修改颜色，就必须修改index、detail、about三份html的style，三份全部修改，如果漏改某一个页面，就出现页面UI不一致；代码冗余，三份文件存储大量重复CSS，文件体积更大；维护成本高，页面数量一旦变多（10个页面），重复复制样式工作量巨大。
+ 
+如果改造为外部链接样式（考试重点link引入css），新建 common.css 公共样式文件，把navbar导航、footer页脚、通用卡片、全局重置样式全部提取放入common.css。每一份html页面head中写 <link rel="stylesheet" href="common.css"> 引入公共样式，页面独有的样式保留在页面内部style标签。
+ 
+✅外部样式优点：①代码复用，公共样式只写一次，所有页面共享；②修改公共样式，只修改common.css，全部引用页面自动更新；③代码分离，结构HTML和CSS样式分离，代码整洁，大型商业网站主流方案；④浏览器缓存css文件，用户打开第二个页面，css不需要重新下载，网页加载速度更快。
+❌缺点：网页运行依赖外部css文件，如果common.css丢失、路径写错，全部页面样式全部失效；提交作业需要同时提交html和css文件，文件变多。
+ 
+内联样式style写标签上，多页面项目几乎不推荐，只适合临时测试，大量使用会造成html代码臃肿，结构和样式混杂，维护困难。
+ 
+总结三种引入方式适用场景：
+ 
+1. 内联样式style属性：临时测试，少量局部样式；优先级最高。
+
+2. 内部样式：单页面项目、课程作业演示，全部代码在一个html文件。
+
+3. 外部link引入css：多页面网站，企业项目，样式复用，最推荐。
+ 
+结合期末考试考点，选择题填空题经常提问多页面共享样式，应该使用哪一种引入，答案是外部链接样式 <link> 。美味食光三份页面，作为课程作业，用内部样式可以满足提交需求；如果真实上线网站，最佳实践是抽离公共外部css，减少重复代码，降低后期维护成本。
+ 

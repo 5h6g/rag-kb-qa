@@ -12,7 +12,7 @@ with open("../docs/sample.txt","r",encoding="utf-8") as f:
 
 
     count = 0
-    cards = set()
+    cards = []
     st = ""
     for sent in sents:
         num = len(sent) + len(st)
@@ -20,12 +20,12 @@ with open("../docs/sample.txt","r",encoding="utf-8") as f:
             st += sent
         else:
             count = count + 1
-            cards.add(st)
+            cards.append(st)
             st = ""
             st += sent
 
 count+=1
-cards.add(st)
+cards.append(st)
 print("-----------")
 print(st)
 print(count)
