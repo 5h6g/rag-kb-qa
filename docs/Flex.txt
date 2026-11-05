@@ -1,0 +1,29 @@
+文段7：Flex弹性布局完整解析（简答题重点）
+ 
+Flexbox弹性布局是期末简答题重点，是现代网页一维布局方案，适合行或者列方向排列元素。开启弹性布局：给父容器设置 display:flex; ，父元素叫做flex容器，直接子元素叫做flex项目，主轴main‑axis是子元素排列方向，交叉轴cross‑axis垂直于主轴，子元素沿着主轴分配空间，适配容器大小变化。
+ 
+容器属性（写在父盒子上，考试简答需要默写）
+ 
+1. flex‑direction：设置主轴方向。默认值row水平从左向右，不是column！column垂直从上向下；row‑reverse水平反向；column‑reverse垂直反向。没有horizontal、vertical这两个取值。
+
+2. justify‑content：主轴方向对齐方式。取值flex‑start、center居中、flex‑end、space‑between两端对齐，间隔分布；space‑around每个元素两边留有空隙。
+
+3. align‑items：交叉轴对齐。flex‑start、center、flex‑end、stretch拉伸占满、baseline基线对齐。
+
+4. flex‑wrap：子元素是否换行。nowrap默认不换行；wrap空间不够自动换行；wrap‑reverse反向换行。
+
+5. align‑content：多行的时候交叉轴对齐，只有flex‑wrap:wrap生效，单行无效。
+ 
+项目属性（写在子元素上）
+ 
+1. order：控制项目排列顺序，整数，默认0，数字越小，越排在前面；
+
+2. flex‑grow放大比例，默认0，容器有剩余空间，按照比例瓜分多余空间；
+
+3. flex‑shrink缩小比例，默认1，空间不足的时候，元素压缩；
+
+4. flex‑basis：项目初始尺寸，默认auto；
+
+5. align‑self：单独修改某一个项目交叉轴对齐，覆盖父容器align‑items设置。
+ 
+回到美味食光网页，大量布局使用flex：导航栏 .navbar 设置display:flex，实现logo居左，导航链接居右； .nav‑links flex横向排列导航链接； .team‑grid 、 .card‑grid 卡片网格， display:flex; flex‑wrap:wrap 实现卡片自动换行，屏幕变小自动调整布局，这就是flex强大的响应式能力。简答题经常提问：flex‑direction默认值，justify‑content作用，区分容器和项目属性，需要完整记忆属性名称和取值含义。

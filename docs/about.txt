@@ -1,0 +1,15 @@
+文段10：美味食光about.html关于我们页面技术拆解
+ 
+about.html是美味食光的关于我们页面，展示团队介绍、联系信息，和首页、详情页共享一套设计风格，导航栏、页脚样式完全复用，保证网站UI统一，体现大型网站项目中样式复用的开发思想。
+ 
+页面结构：head部分和首页保持一致，引入Inter字体和font‑awesome图标，内部style样式，大量class类名和index首页一模一样，navbar、logo、nav‑links、footer全部复用。导航链接 <a class="active"> ，active类用来标记当前所在页面，设置文字颜色和底部边框高亮，告诉用户现在处于哪个页面。
+ 
+主体部分：about‑hero英雄区，使用linear‑gradient线性渐变背景，圆角border‑radius:24px，box‑shadow盒子阴影，h1标题中span标签局部文字改变颜色。核心团队板块 .team‑grid 弹性容器，flex‑wrap换行， .team‑member 团队成员卡片，每一张卡片包含avatar头像img、h4名字、p角色描述。头像border‑radius:50%实现圆形头像，border设置黄色描边；hover悬浮时，头像同时执行scale放大加上rotate轻微旋转，transform多变换空格隔开书写，transition控制动画速度。
+ 
+contact‑box联系盒子，同样flex弹性布局，分为info联系信息区域，和map‑placeholder模拟地图占位盒子。info里面使用font‑awesome图标搭配地址、电话、邮箱、营业时间文本。社交链接a标签，使用onmouseover、onmouseout简单行内js实现鼠标移入放大图标效果。
+ 
+CSS细节：box‑sizing:border‑box全局盒模型设置，元素宽高包含padding和border，是现代网页开发通用设置； * {margin:0;padding:0;} 全局重置，清除浏览器自带默认内外边距，不同浏览器默认样式不一样，全局重置保证页面表现统一。
+ 
+媒体查询适配移动端，768px断点，导航栏高度降低，hero板块padding内边距缩小，标题字号变小。
+ 
+对比考试考点：线性渐变linear‑gradient，transform的scale、rotate，flex布局容器与项目属性，hover伪类，border‑radius圆角，box‑shadow盒子阴影，span行内元素，div块级容器。同时也可以看到多页面网站开发思路：三个页面导航、页脚重复，如果是外部css方案，就把navbar、footer公共样式抽离，减少三份页面重复代码，这也是三种css引入方式中外部样式的优势。

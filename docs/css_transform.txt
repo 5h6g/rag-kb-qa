@@ -1,0 +1,24 @@
+文段5：CSS3新特性transform、transition变形与过渡
+ 
+CSS3新增大量实用特性，transform变形、transition过渡动画、阴影、渐变是考试重点，也是现代网页美化的必备能力，美味食光网站大量运用这些CSS3特性实现交互动效。
+ 
+transform变形包含四个常用方法，极易混淆，一定要分清：
+ 
+1.  rotate(角度) 旋转元素，单位deg，只是旋转，不等于翻转效果；
+2.  scale(倍数) 缩放元素，放大缩小，不是移动；
+3.  translate(x,y) 位移移动元素！想要盒子平移必须用translate，很多同学错写scale实现移动；
+4.  skew() 倾斜扭曲元素。
+ 
+transition过渡属性，实现CSS属性平滑动画过渡，不是瞬间变化。四个子属性：
+ transition‑property 设置要过渡的css属性；
+ transition‑duration 过渡持续时间，单位s秒、ms毫秒，这个是简答题常考，比如0.3s；
+ transition‑timing‑function 动画速率曲线；
+ transition‑delay 动画延迟多久再执行。
+ 
+美味食光导航链接、卡片hover悬浮效果全部依靠transition，鼠标移上去，颜色、位移、阴影不会瞬间跳转，而是平滑渐变， .team‑member:hover {transform:translateY(-10px)} ，鼠标悬浮卡片向上偏移，配合transition设置0.35s完成平滑移动。
+ 
+阴影分为盒子阴影 box‑shadow 和文字阴影 text‑shadow 。
+box‑shadow：盒子阴影，参数：水平偏移、垂直偏移、模糊半径、扩展半径、颜色；
+text‑shadow文字阴影：水平偏移、垂直偏移、模糊半径、颜色；水平正值阴影向右，垂直正值阴影向下，可以逗号分隔写多组多重阴影。
+ 
+渐变分为 linear‑gradient 线性渐变，颜色沿着直线渐变； radial‑gradient 径向渐变，从中心点向外扩散渐变。美味食光的about页面的about‑hero板块背景，就是使用linear‑gradient线性渐变实现柔和的橙黄过渡背景。

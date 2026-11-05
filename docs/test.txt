@@ -1,0 +1,27 @@
+文段12：易混淆考点集合梳理（期末选择判断填空高频坑）
+ 
+结合复习指南，汇总全部易混淆考点，这些知识点是选择题判断题高频出题位置，很多同学考试丢分大多出自这些对比知识点，结合美味食光网页实例辅助理解记忆。
+ 
+1. 字体相关：font‑size字体大小；font‑family字体类型；font‑weight字体粗细；不存在font‑color，文字颜色是color。美味食光h1标题font‑size设置字号，font‑weight:700加粗，font‑family设置Inter字体，color设置主题橙色。
+
+2. padding与margin：padding内边距，不能取负值；margin外边距，可以取负值，填空题经常直接提问。
+
+3. 渐变区分：linear‑gradient线性渐变（直线方向）；radial‑gradient径向渐变（中心向外扩散），about页面hero背景是linear‑gradient线性渐变。
+
+4. transform变形三个函数：rotate旋转；scale缩放；translate移动。很多题目混淆，问实现盒子平移用哪一个，答案translate。卡片hover向上移动就是transform:translateY(-10px)。
+
+5. CSS三种引入方式区分：内联=标签style属性；内部=head里面标签；外部样式=link标签引用独立.css文件。三份示例网页全部使用内部样式，适合单页面。多网站项目推荐外部样式。优先级：内联>内部/外部。
+
+6. display取值：display:none彻底隐藏，不占页面空间；display:block块级，独占一行（div默认）；display:inline行内，不独占一行（span默认）。注意没有display:no这个非法值。
+
+7. text系列属性区分：text‑decoration文本装饰线（下划线删除线）；text‑align文本对齐；text‑transform大小写转换。
+
+8. div和span对比：div块级元素，独占一行，用来划分大模块（导航、卡片容器）；span行内元素，不独占一行，用来局部文字上色高亮。
+
+9. input表单type：合法普通按钮type="button"；type="bottom"是错误；下拉框不能写input type="select"，要使用标签。radio单选依靠相同name属性实现互斥。
+
+10. 阴影区分：box‑shadow盒子阴影，给div卡片盒子用；text‑shadow文字阴影，给文字设置阴影。
+ 
+除此之外HTML文档基础结构：html、head、body三大件，style不属于基础文档结构； <br> 换行单标签； &nbsp; 空格实体；a标签target属性，_blank新窗口打开；盒模型四层从内向外：content‑padding‑border‑margin；margin简写15px 20px含义上下15px，左右20px。
+ 
+Flex考点：flex‑direction默认值row水平，不是column；justify‑content主轴对齐，align‑items交叉轴对齐；项目order顺序，flex‑grow放大，flex‑shrink缩小。

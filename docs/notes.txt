@@ -1,0 +1,19 @@
+文段13：前端网页开发完整学习思路，结合课程考点与项目样例
+ 
+学习前端开发这门课程，要做到理论考点记忆+代码实操练习双向结合，不能只背复习提纲，也不能只写代码忽略概念，电子科大成都学院25级软件工程期末试卷包含选择40分，判断10分，填空20分，简答填空20分，编程10分，题型分布决定既要背诵概念简答，又要手写代码能力。
+ 
+第一模块HTML基础，掌握文档结构、常用标签、特殊字符、a超链接。重点分清块级div和行内span，img标签src alt，br换行标签。可以拿美味食光网页，复制其中HTML结构，手动默写页面骨架，区分哪些标签是单标签，哪些双标签。
+ 
+第二模块CSS基础，CSS全称Cascading Style Sheets，记住HTML负责结构，CSS负责外观，JS负责行为。三种样式引入方式是简答高频；font字体系列属性；px绝对单位，em、rem、%相对单位；text‑decoration文本装饰。手写简单CSS选择器，练习属性和属性值书写格式。
+ 
+第三模块CSS盒模型，四层结构，padding不能负，margin可以负，简写规则，display属性。拿卡片组件分析，看content内容，padding内部留白，border边框，margin外部间距，理解为什么卡片会和别的盒子产生距离。
+ 
+第四模块CSS3新特性，transform四个方法rotate、scale、translate、skew；transition过渡四个子属性，duration控制时间；box‑shadow盒子阴影、text‑shadow文字阴影；线性、径向渐变。观察美味食光所有hover悬浮动画，全部来自transform+transition组合，自己仿写卡片上浮效果。
+ 
+第五模块HTML5表单，各个input type，radio同名name互斥，label for和id绑定，textarea多行输入。虽然示例网站没有表单，但是考试分值很高，手动写一套登录表单练习。
+ 
+第六模块Flex弹性布局，简答题重点，分清容器属性（父盒子）和项目属性（子盒子），五个容器属性flex‑direction、justify‑content、align‑items、flex‑wrap、align‑content；五个项目order、flex‑grow、flex‑shrink、flex‑basis、align‑self。看网站导航、卡片网格全部flex实现，手动复现导航栏布局。
+ 
+第七模块综合编程，字体、阴影、hover伪类、边框、背景色，能够独立手写一小段html+css，完成简单卡片、按钮样式。期末编程题10分，一定要动手写，不能光看。
+ 
+复习自检清单可以用来自我检测：逐条对照，如果不能口述出来，就回到知识点重新复习。比如问自己：HTML文档三大部分？padding和margin负值区别？flex‑direction默认值？translate、scale、rotate分别干什么？CSS三种引入写法。同时把三份网页作为实操案例，看懂每一块代码对应哪一个课程考点，理论结合实践，应对期末考试。

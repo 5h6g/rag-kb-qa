@@ -1,0 +1,29 @@
+文段14：Flex弹性布局简答题答题模板，结合美味食光实例
+ 
+期末考试简答题很大概率考察Flexbox弹性布局，需要完整描述原理、容器属性、项目属性，结合项目例子，答题条理清晰，拿到满分，结合美味食光网站实例辅助理解记忆，完整答题参考如下：
+ 
+Flex（弹性盒子）是CSS3新增的一维布局模型。实现方式：给父容器设置 display:flex ，父元素叫做flex容器，容器直接子元素称为flex项目。主轴main‑axis是子元素排列的方向，交叉轴cross‑axis垂直于主轴方向；子元素可以沿着主轴方向伸缩分配剩余空间，适配容器大小，适合页面行、列方向布局，美味食光网站导航栏、团队卡片网格大量使用Flex布局。
+ 
+容器属性（设置在父容器上，简答题默写）
+ 
+1.  flex‑direction ：设置主轴方向。默认值 row ，水平从左向右排列；column垂直从上到下；row‑reverse水平反向；column‑reverse垂直反向。示例： .navbar {display:flex;flex‑direction:row} 导航栏子元素logo和导航链接水平排布。
+
+2.  justify‑content ：控制主轴方向子元素对齐方式。取值flex‑start起点对齐、center居中对齐、flex‑end终点对齐；space‑between两端对齐，元素之间均分空隙；space‑around每个元素两侧留有相等空隙。3.  align‑items ：控制交叉轴方向子元素对齐，取值flex‑start、center居中、flex‑end、stretch拉伸占满容器、baseline基线对齐。导航栏使用align‑items:center，让logo文字和导航链接垂直居中。
+
+4.  flex‑wrap ：控制子元素是否换行。nowrap默认不换行；wrap空间不足自动换行；wrap‑reverse反向换行。 .team‑grid {flex‑wrap:wrap;} 团队卡片，屏幕变小，卡片自动换行。
+
+5.  align‑content ：多行情况下，设置交叉轴对齐，只有flex‑wrap:wrap换行时生效，单行无效。
+ 
+项目属性（写在直接子元素上）
+ 
+1.  order ：控制项目排列顺序，整数，默认0，数值越小，排列越靠前；
+
+2.  flex‑grow ：放大比例，默认0，当容器有剩余空间，子项目按比例瓜分剩余空间；
+
+3.  flex‑shrink ：缩小比例，默认1，容器空间不足，项目会按照比例压缩；
+
+4.  flex‑basis ：项目初始大小，默认auto；
+
+5.  align‑self ：单独设置单个项目交叉轴对齐，覆盖父容器align‑items的设置。
+ 
+答题小技巧：简答写完概念之后，可以简单举网页例子，比如“美味食光的团队卡片网格，父容器开启display:flex、flex‑wrap:wrap，实现卡片响应式自动换行，体现flex布局优势”，丰富答案。同时注意易错点：flex‑direction默认值row，没有horizontal、vertical合法取值。

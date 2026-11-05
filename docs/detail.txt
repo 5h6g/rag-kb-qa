@@ -1,0 +1,15 @@
+文段11：美味食光detail.html食品详情页技术要点分析
+ 
+detail.html食品详情页，展示意大利面商品完整信息：大图、标题评分标签、产品介绍、配料清单、价格、营养成分表格、加入购物车按钮，是电商详情页典型样例，综合运用课程全部CSS知识点，同时可以用来练习期末编程题仿写网页。
+ 
+页面头部依旧复用导航栏，active类标记当前处于详情页面。detail‑hero详情头部大图容器，img图片设置max‑width:100%，object‑fit:cover，保证图片不变形填满盒子，border‑radius大圆角。
+ 
+ .detail‑content 主体内容区域采用flex弹性布局， display:flex; flex‑wrap:wrap; ，分为左侧detail‑text文字区域flex:2，占两份空间；右侧detail‑side侧边栏flex:1占一份空间，min‑width设置最小宽度，手机屏幕空间不足自动换行，左右变成上下排布，响应式效果。
+ 
+左侧详情：h1大标题，多个info‑tag标签展示评分、爆款、低脂标签，display:inline‑block行内块，能够设置宽高margin，实现圆角色块标签。大段p产品描述，line‑height:1.8提升阅读体验；配料清单ul无序列表，flex横向自动换行，每个li搭配font‑awesome对勾图标。
+ 
+右侧侧边栏白色卡片，存放价格、营养表格、加入购物车按钮。价格使用大字号、font‑weight加粗、主题色#e85d3a突出价格。styled‑table营养成分表格，border‑collapse合并边框，th表头背景色区分。加入购物车button按钮，设置onmouseover、onmouseout行内js，悬浮scale放大按钮，box‑shadow阴影增强立体感，cursor:pointer鼠标变成手型。
+ 
+CSS知识点对应考点：flex布局分配flex系数；inline‑block行内块元素；border‑radius圆角；box‑shadow盒子阴影；transition过渡；transform缩放；表格table样式；object‑fit控制图片；媒体查询@media适配移动端。
+ 
+网页三个页面index、detail、about的导航栏、页脚完全一模一样，这在实际项目中会抽离公共css，也就是考试重点的外部链接样式，link引入独立css文件，三个页面共同引用公共样式文件，不用每个页面复制一整套style，后续修改导航颜色，仅仅修改公共css，全部页面同步更新，减少重复代码，维护更简单。而当前三份网页全部使用内部样式，每个页面复制一遍公共样式，适合单页面简单项目，多页面项目不推荐。

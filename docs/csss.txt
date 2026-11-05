@@ -1,0 +1,21 @@
+文段4：CSS盒模型核心知识详解
+ 
+CSS盒模型是网页布局的基石，网页当中每一个元素都可以看作一个盒子，从内向外四层依次：content内容区、padding内边距、border边框、margin外边距。
+ 
+content盒子内容区域，存放文字图片，width和height设置的就是content的宽高；
+padding（内边距）：内容和边框之间空白距离，只能设置正数，不允许负值，写负值无效。
+border（边框）：盒子的边线，可以设置宽度、线型solid实线、dashed虚线、颜色；
+margin（外边距）：盒子和外部其他元素之间的距离，margin支持负值！这是margin和padding最大区别，填空题、判断题高频考点。
+ 
+margin、padding支持简写，四种简写规则：
+1个值：四边全部相同  margin:10px; 上下左右都是10px；
+2个值：第一个上下，第二个左右  margin:15px 20px; 上下15px，左右20px；
+3个值：上、左右、下；
+4个值：顺时针顺序 上、右、下、左。
+ 
+display属性控制盒子显示模式：
+ display:block 块级元素，独占一行，div、h系列标签默认块级；
+ display:inline 行内元素，不会独占一行，span默认行内；
+ display:none 元素彻底隐藏，不占据页面任何空间，和visibility:hidden不一样，后者只是看不见，仍然保留占位。
+ 
+美味食光项目里的卡片 .team‑member 、 .card 完整体现盒模型：content存放图片文字，padding设置卡片内部留白，border设置浅颜色边框，margin设置卡片和其他卡片之间间距，border‑radius修改盒子圆角，box‑shadow增加盒子阴影，组合出圆润的卡片视觉效果。理解盒模型，就可以看懂绝大多数网页布局留白的来源，考试的简答填空也经常考察四层结构，padding、margin负值区别。

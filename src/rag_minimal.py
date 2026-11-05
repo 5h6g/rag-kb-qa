@@ -15,7 +15,7 @@ def build_knowledge_base():
     print("[1/4] 加载文档并切分...")
     
     texts = []
-    for fname in os.listdir(DOCS_DIR):
+    for fname in sorted(os.listdir(DOCS_DIR)):
         if fname.endswith(".txt"):
             with open(os.path.join(DOCS_DIR, fname), "r", encoding="utf-8") as f:
                 texts.append(f.read())

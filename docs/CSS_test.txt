@@ -1,0 +1,23 @@
+文段8：期末编程题考点与CSS综合样式编写
+ 
+期末编程题占10分，要求手写HTML和CSS代码，综合运用各类样式，复习指南明确列出需要掌握的各类能力，结合美味食光案例可以更好理解各个考点。
+ 
+1. 字体系列样式：熟练写font‑size、font‑weight、color、line‑height行高。行高line‑height可以实现文字垂直居中，网页正文line‑height:1.6提升阅读舒适度。
+
+2. text‑shadow文字阴影：记住偏移规则，x水平，正数向右；y垂直，正数向下；第三个参数模糊半径，最后颜色；支持多组阴影逗号隔开。示例： text‑shadow:2px 2px 2px rgba(0,0,0,0.5); 。
+
+3. 文本装饰text‑decoration：underline下划线、overline上划线、line‑through删除线，double实现双下划线。a标签伪类 :hover 鼠标悬浮样式，a写链接默认样式，a:hover鼠标移上去改变颜色、下划线。
+
+4. border边框语法： border:宽度 线型 颜色; ，solid实线，dashed虚线，比如 border:2px solid #f5a623; 。
+
+5. 背景：background‑color设置背景色，可以写颜色名字、十六进制#e85d3a、rgb、rgba带透明度，美味食光大量使用rgba设置半透明效果，导航栏 background:rgba(255,248,240,0.92) 。
+
+6. 尺寸width、height设置盒子宽高；
+
+7. 伪类hover悬浮：几乎所有卡片、按钮交互全部依靠hover， .card:hover 鼠标悬浮卡片，修改transform位移、box‑shadow阴影，实现上浮效果。
+ 
+编程题大概率给需求，写一小段HTML结构+CSS样式，例如制作卡片、导航按钮。需要注意语法：css大括号，属性冒号，语句末尾分号不要漏写；单位px、rem不要丢；类选择器使用 . ；id选择器 # 。示例，模拟卡片hover：
+ 
+ 
+ 
+同时考试易错坑：不要写font‑color，文字颜色是color；padding不能负值，margin可以负值；区分block、inline、none。

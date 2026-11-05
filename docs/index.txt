@@ -1,0 +1,17 @@
+文段9：美味食光首页index.html代码业务逻辑与技术分析
+ 
+美味食光 index.html 是项目首页，完整实现美食网站首页功能，包含导航栏、轮播hero横幅、精选推荐卡片网格、热门分类板块、优势介绍和榜单表格、底部页脚，综合运用HTML标签、CSS盒模型、Flex布局、CSS3过渡变形、媒体查询响应式技术。
+ 
+HTML结构划分清晰， <!DOCTYPE html> 声明文档类型，html lang="zh‑CN"声明中文网页；head里面设置meta字符集UTF‑8，视口viewport适配手机；引入外部字体Inter、font‑awesome字体图标库，图标库提供餐具、电话、社交图标； <style> 标签内部存放全部CSS，属于内部样式表。
+ 
+页面结构语义化：header代表导航头部，main包裹全部页面主体内容，section划分各个板块，footer页脚。导航栏 .navbar 设置 position:fixed 固定定位，固定在页面顶部，z‑index提高层级，不会被页面内容遮挡，设置display:flex，左右分布logo和ul导航列表。ul列表清除默认list‑style:none去掉圆点。
+ 
+hero横幅板块，伪元素::before放置半透明背景图片，position:absolute绝对定位叠加，主内容position:relative保证文字层级高于背景图。 .hero‑btn 按钮设置hover悬浮效果，transition实现平滑变化，onclick简单js弹窗。
+ 
+精选推荐 .card‑grid 弹性网格， display:flex; flex‑wrap:wrap; ，卡片 .card 设置 flex:1 1 220px 弹性伸缩，max‑width限制最大宽度，min‑width最小宽度，屏幕大就多排卡片，手机屏幕窄自动换行。卡片hover触发transform:translateY(-12px)上浮，box‑shadow加大阴影，transition:0.35s完成平滑过渡。
+ 
+ .category‑grid 热门分类同样flex布局，每个分类item悬浮emoji表情scale缩放旋转。info‑section板块使用ul无序列表展示优势，搭配font‑awesome图标；styled‑table制作本周榜单表格，border‑collapse合并边框。
+ 
+最后媒体查询 @media(max‑width:768px) 做移动端适配，屏幕宽度小于768px平板手机，修改导航栏高度、hero内边距、字号，适配小屏幕设备。footer页脚flex纵向布局，存放社交图标、版权文字。
+ 
+整个页面充分体现课程全部考点：html基础标签、css盒模型、flex布局、transform、transition过渡、hover伪类、媒体查询响应式，是复习很好的实操样例。

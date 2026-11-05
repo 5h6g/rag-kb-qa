@@ -1,0 +1,13 @@
+文段3：CSS字体系列属性深度梳理
+ 
+CSS字体相关属性是期末考试高频考点，一共有 font-size 、 font‑weight 、 font‑style 、 font‑family 这四个核心属性，千万不要编造不存在的 font‑color ，文字颜色属性是独立的 color ，这是经典易错点。
+ 
+ font‑size 用来设置字体大小，单位可以用px、em、rem、百分比。px是绝对单位，像素大小固定，不受父元素影响；em是相对单位，参照父元素的字体大小；rem参照html根标签字体大小；%百分比同样参照父元素。美味食光网站大量使用rem、px混合，标题设置大字号 font‑size:2.8rem ，普通正文设置1rem。
+ 
+ font‑weight 控制字体粗细，取值有 normal 正常、 bold 加粗，也可以使用100‑900数字，400等价normal，700等价bold，网站logo、大标题都设置font‑weight:700实现加粗效果。
+ 
+ font‑style 控制字体样式斜体， italic 代表斜体， normal 正常字体，注意斜体效果不能使用font‑weight实现，粗细和斜体是两套独立属性。
+ 
+ font‑family 设置字体族，指定页面使用什么字体，例如 "微软雅黑",serif ，多个字体逗号隔开，浏览器从左向右依次寻找本机存在的字体，美味食光全部页面设置 font‑family:'Inter',sans‑serif 优先使用Inter字体，系统没有就使用无衬线默认字体。
+ 
+文本装饰属性 text‑decoration 也常和字体一起考察，取值 underline 下划线、 overline 上划线、 line‑through 删除线、 none 去除下划线。网页默认a标签自带下划线，项目导航栏a标签使用 text‑decoration:none 清除默认下划线，再通过border‑bottom模拟底部高亮线条。同时区分容易混淆属性： text‑align 文本对齐， text‑transform 大小写转换， text‑indent 首行缩进，和text‑decoration各司其职，不能混用。
